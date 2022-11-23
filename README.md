@@ -1,6 +1,3 @@
-# Project 2: XXX
-Online location for application: https://app-projectapp2.herokuapp.com/
-
 This is a web application that is used for repeated practice of learned content. The application provides a list of topics and allows creating multiple-choice questions into those topics that are then answered by self and others. The application also shows basic statistics: the total number of available questions and the total number of question answers. In addition, the application also provides an API for retrieving and answering random questions.
 
 
