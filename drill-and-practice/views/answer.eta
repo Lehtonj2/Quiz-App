@@ -1,0 +1,12 @@
+<% layout("./layouts/layout.eta") %>
+<a href="/quiz">Back to quiz-topics</a>
+
+<h1><%= it.is_correct %></h1>
+
+<% if (it.correct_text) { %>
+<p>Correct option was: <%= it.correct_text %></p>
+<% } else { %>
+
+<% } %>
+
+<a href="/quiz/<%= it.topic_id %>">Next question</a>

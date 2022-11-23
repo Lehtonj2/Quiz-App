@@ -1,0 +1,42 @@
+<% layout("./layouts/layout.eta") %>
+
+<a href="/topics">Back to topics</a>
+
+<h1><%= it.topic.name %></h1>
+
+<h1>Current questions</h1>
+
+<% if (it.questions && it.questions.length > 0) { %>
+
+<ul>
+<% it.questions.forEach(question => { %>
+  <li><a href="/topics/<%= question.topic_id %>/questions/<%= question.id %>"><%= question.question_text %></a> <form method="POST" action="/topics/<%= question.topic_id %>/questions/<%= question.id %>/delete">
+    <input type="submit" value="Delete"/>
+    </form></li>
+<% }); %>
+</ul>
+
+<% } else { %>
+
+<p>None available.</p>
+
+<% } %>
+
+<h2>Add a question!</h2>
+
+<% if (it.validationErrors) { %>
+<ul>
+    <% Object.keys(it.validationErrors).forEach((attribute) => { %>
+        <% Object.values(it.validationErrors[attribute]).forEach((err) => { %>
+            <li><%= err %></li>
+        <% }); %>
+    <% }); %>
+</ul>
+<% } else {%>
+<% } %>
+
+<form method="POST" action="/topics/<%= it.topic.id %>/questions">
+Text:<br/>
+<textarea name="question_text"></textarea><br/>
+<input type="submit" value="Submit"/>
+</form>

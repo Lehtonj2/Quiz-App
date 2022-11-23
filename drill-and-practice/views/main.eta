@@ -1,0 +1,12 @@
+<% layout("./layouts/layout.eta") %>
+
+<h1>Quiz application</h1>
+<p>This is a web application that is used for repeated practice of learned content.</p>
+<p>Total number of topics: <%= it.nOfTopics %></p>
+<p>Total number of available questions: <%= it.nOfQuestions %></p>
+<p>Total number of question answers: <%= it.nOfAnswers %></p>
+
+<a href="/topics">See topics (requires login)</a><br/>
+<a href="/quiz">Go to quiz-page (requires login)</a><br/>
+<a href="/auth/login">Login</a><br/>
+<a href="/auth/register">Register</a><br/>

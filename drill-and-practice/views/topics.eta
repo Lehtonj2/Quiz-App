@@ -1,0 +1,62 @@
+<% layout("./layouts/layout.eta") %>
+<a href="/">Back to main page</a>
+
+<h1>Current topics</h1>
+
+<% if (it.admin) { %>
+
+<% if (it.topics && it.topics.length > 0) { %>
+
+<ul>
+<% it.topics.forEach(topic => { %>
+  <li><a href="/topics/<%= topic.id %>"><%= topic.name %></a> <form method="POST" action="/topics/<%= topic.id %>">
+    <input type="submit" value="Delete"/>
+    </form></li>
+<% }); %>
+</ul>
+
+<% } else { %>
+
+<p>None available.</p>
+
+<% } %>
+
+<h2>Add a topic!</h2>
+
+<% if (it.validationErrors) { %>
+<ul>
+    <% Object.keys(it.validationErrors).forEach((attribute) => { %>
+        <% Object.values(it.validationErrors[attribute]).forEach((err) => { %>
+            <li><%= err %></li>
+        <% }); %>
+    <% }); %>
+</ul>
+<% } else {%>
+<% } %>
+
+<form method="POST" action="/topics">
+Name:<br/>
+<input type="text" name="topic_name" /><br/>
+<input type="submit" value="Submit"/>
+</form>
+
+
+<% } else { %>
+
+
+<% if (it.topics && it.topics.length > 0) { %>
+
+<ul>
+<% it.topics.forEach(topic => { %>
+  <li><a href="/topics/<%= topic.id %>"><%= topic.name %></a></li>
+<% }); %>
+</ul>
+
+<% } else { %>
+
+<p>None available.</p>
+
+<% } %>
+
+
+<% } %>
